@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blown Away Salon — Challis, Idaho</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --purple:#6B3FA0;
+  --purple2:#8B5FC0;
+  --pink:#E8A0C0;
+  --cream:#FDF8FF;
+  --lavender:#F0E8FF;
+  --dark:#1A0A2E;
+  --text:#2A1A3E;
+  --muted:#8A7090;
+  --serif:'Playfair Display',serif;
+  --sans:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:var(--sans);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,255,.97);backdrop-filter:blur(12px);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(107,63,160,.15)}
+.nav-logo{font-family:var(--serif);font-size:18px;color:var(--purple);text-decoration:none;font-style:italic}
+.nav-logo small{display:block;font-size:8px;letter-spacing:3px;color:var(--muted);font-family:var(--sans);font-style:normal;font-weight:500;text-transform:uppercase;margin-top:1px}
+.nav-book{background:var(--purple);color:#fff;padding:8px 18px;font-size:11px;font-weight:600;text-decoration:none;letter-spacing:2px;text-transform:uppercase;border-radius:30px}
+
+.hero{background:var(--dark);padding:96px 20px 48px;text-align:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=80') center/cover no-repeat;opacity:.12}
+.hero-glow{position:absolute;top:30%;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(107,63,160,.2) 0%,transparent 70%);border-radius:50%}
+.hero-content{position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(107,63,160,.2);border:1px solid rgba(107,63,160,.4);color:#D4B0FF;padding:6px 16px;border-radius:30px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.hero-title{font-family:var(--serif);font-size:56px;line-height:.9;color:#fff;margin-bottom:12px;font-style:italic}
+.hero-title span{color:var(--pink);display:block;font-size:44px}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:28px;max-width:380px;margin-left:auto;margin-right:auto;font-weight:300}
+.hero-cta{display:flex;flex-direction:column;gap:10px;max-width:280px;margin:0 auto 36px}
+.btn-main{background:var(--purple);color:#fff;padding:14px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:block;text-align:center;border-radius:30px}
+.btn-sec{border:1.5px solid rgba(255,255,255,.2);color:#fff;padding:12px;font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:block;text-align:center;border-radius:30px}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,.08)}
+.h-stat{padding:16px 8px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.h-stat:nth-child(even){border-right:none}
+.h-stat-num{font-family:var(--serif);font-size:30px;color:var(--pink);display:block;font-weight:700;line-height:1;font-style:italic}
+.h-stat-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:4px;display:block;font-weight:500}
+
+.team{padding:56px 20px;background:var(--lavender);text-align:center}
+.sec-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;font-weight:600}
+.sec-title{font-family:var(--serif);font-size:36px;color:var(--dark);font-style:italic;line-height:1;margin-bottom:28px}
+.team-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.team-card{background:#fff;padding:24px;border-radius:20px;text-align:left;box-shadow:0 2px 16px rgba(107,63,160,.08)}
+.team-name{font-family:var(--serif);font-size:22px;color:var(--dark);font-style:italic;margin-bottom:4px}
+.team-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;font-weight:600}
+.team-desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300}
+.team-phone{font-size:14px;color:var(--purple);font-weight:600;margin-top:10px;display:block;text-decoration:none}
+
+.services{padding:56px 20px;background:var(--cream)}
+.svc-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.svc-card{background:var(--lavender);padding:20px;border-radius:16px;display:flex;align-items:flex-start;gap:12px;transition:transform .3s}
+.svc-card:hover{transform:translateY(-2px)}
+.svc-icon{font-size:26px;flex-shrink:0}
+.svc-name{font-family:var(--serif);font-size:18px;color:var(--dark);font-style:italic;margin-bottom:3px}
+.svc-desc{font-size:13px;color:var(--muted);line-height:1.6;font-weight:300}
+
+.about{padding:56px 20px;background:var(--dark)}
+.about img{width:100%;height:240px;object-fit:cover;border-radius:16px;margin-bottom:28px}
+.about-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--pink);margin-bottom:10px;font-weight:600}
+.about-title{font-family:var(--serif);font-size:32px;color:#fff;font-style:italic;line-height:1.05;margin-bottom:8px}
+.about-rule{width:28px;height:2px;background:var(--purple);margin:14px 0 18px;border-radius:2px}
+.about p{color:rgba(255,255,255,.5);line-height:1.9;font-size:14px;margin-bottom:14px;font-weight:300}
+.about-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.about-list li{display:flex;align-items:flex-start;gap:10px;color:rgba(255,255,255,.6);font-size:14px}
+.about-list li::before{content:'✦';color:var(--pink);flex-shrink:0}
+
+.contact{padding:56px 20px;background:var(--lavender)}
+.contact-title{font-family:var(--serif);font-size:32px;color:var(--dark);font-style:italic;margin-bottom:8px}
+.contact-rule{width:28px;height:2px;background:var(--purple);margin:14px 0 18px;border-radius:2px}
+.contact-text{color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:24px;font-weight:300}
+.c-item{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.c-icon{width:36px;height:36px;background:var(--purple);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.c-info strong{color:var(--dark);display:block;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.c-info a,.c-info span{color:var(--muted);font-size:13px;text-decoration:none}
+.book-box{background:var(--dark);border-radius:20px;padding:28px;margin-top:24px;text-align:center}
+.book-title{font-family:var(--serif);font-size:22px;color:#fff;font-style:italic;margin-bottom:8px}
+.book-sub{color:rgba(255,255,255,.4);font-size:13px;margin-bottom:18px;line-height:1.6;font-weight:300}
+.book-btns{display:flex;flex-direction:column;gap:10px}
+.book-btn{background:var(--purple);color:#fff;padding:13px;border-radius:30px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:block;text-align:center}
+.book-btn.outline{background:transparent;border:1px solid rgba(255,255,255,.2);color:#fff}
+
+footer{background:var(--dark);padding:24px 20px;border-top:1px solid rgba(107,63,160,.2);text-align:center}
+.footer-logo{font-family:var(--serif);font-size:20px;color:#fff;font-style:italic}
+.footer-logo span{color:var(--pink)}
+.footer-sub{font-size:9px;color:rgba(255,255,255,.25);margin:4px 0 8px;letter-spacing:3px;text-transform:uppercase}
+.footer-info{color:rgba(255,255,255,.3);font-size:12px;line-height:1.9}
+
+@media(min-width:768px){
+  nav{padding:16px 60px}
+  .hero{padding:120px 60px 64px;text-align:left}
+  .hero-sub{margin-left:0;max-width:440px}
+  .hero-cta{flex-direction:row;max-width:none}
+  .btn-main,.btn-sec{width:auto;display:inline-block;padding-left:32px;padding-right:32px}
+  .hero-stats{grid-template-columns:repeat(4,1fr)}
+  .h-stat{border-bottom:none}
+  .h-stat:nth-child(even){border-right:1px solid rgba(255,255,255,.08)}
+  .team{padding:100px 60px}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .services{padding:100px 60px}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .about{padding:100px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .about img{height:500px;margin-bottom:0}
+  .contact{padding:100px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+  .book-box{margin-top:0}
+  .book-btns{flex-direction:row;justify-content:center}
+  .book-btn{width:auto;padding-left:28px;padding-right:28px}
+  footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:center;text-align:left}
+  .footer-sub{margin:3px 0 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Blown Away<small>Salon · Challis, Idaho</small></a>
+  <a href="tel:2089400505" class="nav-book">📞 Book Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag">💜 10 Years Serving Challis</div>
+    <h1 class="hero-title">Blown Away<span>Salon</span></h1>
+    <p class="hero-sub">Healthy, natural hair and nail services in the heart of Challis, Idaho — by Kayla and Austyn. Your transformation starts here!</p>
+    <div class="hero-cta">
+      <a href="tel:2089400505" class="btn-main">📞 Book with Kayla</a>
+      <a href="#contact" class="btn-sec">Find Us →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><span class="h-stat-num">10</span><span class="h-stat-label">Years in Challis</span></div>
+      <div class="h-stat"><span class="h-stat-num">5.0★</span><span class="h-stat-label">Star Rating</span></div>
+      <div class="h-stat"><span class="h-stat-num">556</span><span class="h-stat-label">Facebook Fans</span></div>
+      <div class="h-stat"><span class="h-stat-num">2</span><span class="h-stat-label">Stylists</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <p class="sec-tag">Meet the Team</p>
+  <h2 class="sec-title">Your Stylists</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-name">Kayla</div>
+      <div class="team-title">Owner & Stylist · Est. 2014</div>
+      <p class="team-desc">Kayla founded Blown Away Salon in 2014 and has been serving the Challis community for 10 years. Specialising in healthy natural hair, extensions and colour — her passion for hair shines through in every client.</p>
+      <a href="tel:2089400505" class="team-phone">📞 (208) 940-0505</a>
+    </div>
+    <div class="team-card">
+      <div class="team-name">Austyn</div>
+      <div class="team-title">Stylist</div>
+      <p class="team-desc">Austyn brings creativity and expertise to every appointment. From bold fashion colours to precision cuts — she loves making clients feel their absolute best.</p>
+      <a href="tel:2089931802" class="team-phone">📞 (208) 993-1802</a>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <p class="sec-tag">What We Offer</p>
+  <h2 class="sec-title">Our Services</h2>
+  <div class="svc-grid">
+    <div class="svc-card"><span class="svc-icon">✂️</span><div><div class="svc-name">Cuts & Styling</div><p class="svc-desc">Precision cuts for all hair types — personalised to your face shape and lifestyle.</p></div></div>
+    <div class="svc-card"><span class="svc-icon">🎨</span><div><div class="svc-name">Colour & Highlights</div><p class="svc-desc">Full colour, highlights, balayage and fashion colours — beautiful results every time.</p></div></div>
+    <div class="svc-card"><span class="svc-icon">💆</span><div><div class="svc-name">Extensions</div><p class="svc-desc">Tape, fusion and other extension methods — add length and volume with expert application.</p></div></div>
+    <div class="svc-card"><span class="svc-icon">💅</span><div><div class="svc-name">Nail Services</div><p class="svc-desc">Healthy nail care — gel, manicures and more. Looking good from head to toe!</p></div></div>
+    <div class="svc-card"><span class="svc-icon">🌿</span><div><div class="svc-name">Natural Hair Care</div><p class="svc-desc">Healthy, natural hair is our main goal — we use quality products to keep your hair thriving.</p></div></div>
+    <div class="svc-card"><span class="svc-icon">🤍</span><div><div class="svc-name">Brow Services</div><p class="svc-desc">Brow shaping, tinting and waxing — frame your face perfectly.</p></div></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80" alt="Blown Away Salon Challis">
+  <div>
+    <p class="about-tag">Our Story</p>
+    <h2 class="about-title">10 Years of Blowing Challis Away</h2>
+    <div class="about-rule"></div>
+    <p>Kayla opened Blown Away Salon in Challis in 2014 with one mission — healthy, natural hair for everyone in the community. A decade later, that mission is still at the heart of everything they do.</p>
+    <p>With two talented stylists and a loyal following of 556 Facebook fans, Blown Away has become Challis's go-to salon for colour, cuts, extensions and nails. Summer books up fast — call ahead!</p>
+    <ul class="about-list">
+      <li>Serving Challis since 2014 — 10 years!</li>
+      <li>Specialising in healthy natural hair</li>
+      <li>Extensions — tape, fusion and more</li>
+      <li>Quality products — Olaplex & more</li>
+      <li>5.0 star rating on Google</li>
+      <li>Book online or call to schedule</li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div>
+    <p class="sec-tag">Book Your Appointment</p>
+    <h2 class="contact-title">Come See Us in Challis</h2>
+    <div class="contact-rule"></div>
+    <p class="contact-text">Call your preferred stylist directly or book online. Summer fills up fast — plan ahead for holidays and back-to-school!</p>
+    <div class="c-item"><div class="c-icon">📞</div><div class="c-info"><strong>Kayla</strong><a href="tel:2089400505">(208) 940-0505</a></div></div>
+    <div class="c-item"><div class="c-icon">📞</div><div class="c-info"><strong>Austyn</strong><a href="tel:2089931802">(208) 993-1802</a></div></div>
+    <div class="c-item"><div class="c-icon">📍</div><div class="c-info"><strong>Address</strong><span>1340 E Pleasant Ave, Challis, ID 83226</span></div></div>
+    <div class="c-item"><div class="c-icon">📘</div><div class="c-info"><strong>Facebook</strong><a href="https://www.facebook.com/blownawaysalonchallis/" target="_blank">Blown Away Salon — Challis ID</a></div></div>
+  </div>
+  <div class="book-box">
+    <div class="book-title">Ready to Get Blown Away? 💜</div>
+    <div class="book-sub">Call your stylist or follow us on Facebook for availability and updates!</div>
+    <div class="book-btns">
+      <a href="tel:2089400505" class="book-btn">📞 Call Kayla</a>
+      <a href="https://www.facebook.com/blownawaysalonchallis/" target="_blank" class="book-btn outline">📘 Facebook</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">Blown <span>Away</span></div>
+    <div class="footer-sub">Salon · Challis, Idaho · Est. 2014</div>
+  </div>
+  <div class="footer-info">
+    1340 E Pleasant Ave, Challis, ID · (208) 940-0505
+  </div>
+</footer>
+</body>
+</html>
